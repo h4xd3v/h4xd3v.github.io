@@ -1,4 +1,156 @@
----
-layout: home
-author_profile: true
----
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H4X | Tools</title>
+    <!-- Modern Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">VICENTE - H4X</a>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="about.html" class="nav-link">About Me</a></li>
+                <li class="nav-item"><a href="#utilities" class="nav-link">Utilidades</a></li>
+                <li class="nav-item"><a href="#coming-soon-1" class="nav-link">Proximamente 1</a></li>
+                <li class="nav-item"><a href="#coming-soon-2" class="nav-link">Proximamente 2</a></li>
+                <li class="nav-item"><a href="#coming-soon-3" class="nav-link">Proximamente 3</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero -->
+    <header class="hero">
+        <div class="container">
+            <h1>Herramientas de Ciberseguridad</h1>
+            <p>Utilidades rápidas para análisis y gestión de IOCs.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Utilities Section -->
+        <section id="utilities" class="section">
+            <h2 class="section-title">Utilidades</h2>
+            <div class="tools-grid">
+
+                <!-- Tool 1: Obfuscate -->
+                <div class="tool-card" id="card-ofuscar">
+                    <div class="tool-header">
+                        <span class="step-badge">1</span>
+                        <h3>Ofuscar IOC</h3>
+                    </div>
+                    <div class="tool-body">
+                        <p class="tool-desc">Convierte <code>.</code> a <code>[.]</code> y <code>http</code> a
+                            <code>hxxp</code>.
+                        </p>
+                        <textarea id="txtAreaOfuscate" class="textarea" placeholder="Pega aquí los IOCs..."></textarea>
+                        <div class="result-box">
+                            <textarea id="txtAreaCustomIOCOfuscate" class="textarea" readonly
+                                placeholder="Resultado..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool 2: Deobfuscate -->
+                <div class="tool-card" id="card-desofuscar">
+                    <div class="tool-header">
+                        <span class="step-badge">2</span>
+                        <h3>Desofuscar IOC</h3>
+                    </div>
+                    <div class="tool-body">
+                        <p class="tool-desc">Revierte <code>[.]</code> a <code>.</code> y <code>hxxp</code> a
+                            <code>http</code>.
+                        </p>
+                        <textarea id="txtAreaIOCClarify" class="textarea"
+                            placeholder="Pega aquí los IOCs ofuscados..."></textarea>
+                        <div class="result-box">
+                            <textarea id="txtAreaCustomIOCClarify" class="textarea" readonly
+                                placeholder="Resultado..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool 3: Filter -->
+                <div class="tool-card full-width" id="card-filtro-ioc">
+                    <div class="tool-header">
+                        <span class="step-badge">3</span>
+                        <h3>Filtro IOC</h3>
+                    </div>
+                    <div class="tool-body filter-grid">
+                        <div class="filter-input-area">
+                            <label>Texto a buscar / filtrar:</label>
+                            <input type="text" id="txtWordFilter" class="input-text" placeholder="Ej: malicious_ip...">
+
+                            <label>Lista de IOCs / Texto:</label>
+                            <textarea id="txtTextFilter" class="textarea large"
+                                placeholder="Pega el dump de texto aquí..."></textarea>
+                        </div>
+
+                        <div class="filter-results-area">
+                            <div class="result-group">
+                                <label>MD5 (<span id="countMD5">0</span>)</label>
+                                <textarea id="txtMD5ResultFilterText" class="textarea result-text" readonly></textarea>
+                            </div>
+                            <div class="result-group">
+                                <label>SHA256 (<span id="countSHA256">0</span>)</label>
+                                <textarea id="txtSHA256ResultFilterText" class="textarea result-text"
+                                    readonly></textarea>
+                            </div>
+                            <div class="result-group">
+                                <label>Dominios (<span id="countDomain">0</span>)</label>
+                                <textarea id="txtDomainResultFilterText" class="textarea result-text"
+                                    readonly></textarea>
+                            </div>
+                            <div class="result-group">
+                                <label>URLs (<span id="countURL">0</span>)</label>
+                                <textarea id="txtURLResultFilterText" class="textarea result-text" readonly></textarea>
+                            </div>
+                            <div class="result-group">
+                                <label>Filtro Personalizado (<span id="countCustom">0</span>)</label>
+                                <textarea id="txtResultFilterText" class="textarea result-text" readonly></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Upcoming Sections -->
+        <section id="coming-soon-1" class="section placeholder-section">
+            <h2>Proximamente Utilidad 1</h2>
+            <p>Estamos trabajando en nuevas herramientas.</p>
+        </section>
+
+        <section id="coming-soon-2" class="section placeholder-section">
+            <h2>Proximamente Utilidad 2</h2>
+            <p>Más funcionalidades pronto.</p>
+        </section>
+
+        <section id="coming-soon-3" class="section placeholder-section">
+            <h2>Proximamente Utilidad 3</h2>
+            <p>Espéralo.</p>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 H4X. Created by evil-h4x. Refactored for performance.</p>
+    </footer>
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
