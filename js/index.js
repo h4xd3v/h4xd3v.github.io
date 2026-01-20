@@ -72,11 +72,11 @@ const WebTools = {
     filterContent: (text, keyword) => {
         if (!text) {
             // Clear outputs if empty
-            ['txtMD5ResultFilterText', 'txtSHA256ResultFilterText', 'txtDomainResultFilterText', 'txtURLResultFilterText', 'txtResultFilterText'].forEach(id => {
+            ['txtMD5ResultFilterText', 'txtSHA1ResultFilterText', 'txtSHA256ResultFilterText', 'txtDomainResultFilterText', 'txtURLResultFilterText', 'txtResultFilterText'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.value = '';
             });
-            ['countMD5', 'countSHA256', 'countDomain', 'countURL', 'countCustom'].forEach(id => {
+            ['countMD5', 'countSHA1', 'countSHA256', 'countDomain', 'countURL', 'countCustom'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.textContent = '0';
             });
@@ -86,6 +86,7 @@ const WebTools = {
         // Regex Patterns
         // Hashes
         const msgRegex = /\b[a-fA-F0-9]{32}\b/g;
+        const sha1Regex = /\b[a-fA-F0-9]{40}\b/g;
         const sha256Regex = /\b[a-fA-F0-9]{64}\b/g;
 
         // Domains: Alphanumeric + dots/hyphens. Handles defanged [.]
@@ -101,6 +102,7 @@ const WebTools = {
         };
 
         const uniqueMD5 = extract(msgRegex);
+        const uniqueSHA1 = extract(sha1Regex);
         const uniqueSHA256 = extract(sha256Regex);
         const uniqueURLs = extract(urlRegex);
         const uniqueDomains = extract(domainRegex);
@@ -121,6 +123,7 @@ const WebTools = {
         };
 
         updateUI('txtMD5ResultFilterText', 'countMD5', uniqueMD5);
+        updateUI('txtSHA1ResultFilterText', 'countSHA1', uniqueSHA1);
         updateUI('txtSHA256ResultFilterText', 'countSHA256', uniqueSHA256);
         updateUI('txtDomainResultFilterText', 'countDomain', uniqueDomains);
         updateUI('txtURLResultFilterText', 'countURL', uniqueURLs);
